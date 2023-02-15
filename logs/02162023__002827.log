@@ -1,0 +1,18 @@
+[ 2023-02-16 00:28:28,397 ] 16 root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Data Ingestion <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[ 2023-02-16 00:28:28,398 ] 23 root - INFO - Exporting collection data as pandas dataframe
+[ 2023-02-16 00:28:28,398 ] 22 root - INFO - Reading data from database: credit_card and collection: payments
+[ 2023-02-16 00:28:29,485 ] 24 root - INFO - Found columns: Index(['_id', 'ID', 'LIMIT_BAL', 'SEX', 'EDUCATION', 'MARRIAGE', 'AGE',
+       'PAY_0', 'PAY_2', 'PAY_3', 'PAY_4', 'PAY_5', 'PAY_6', 'BILL_AMT1',
+       'BILL_AMT2', 'BILL_AMT3', 'BILL_AMT4', 'BILL_AMT5', 'BILL_AMT6',
+       'PAY_AMT1', 'PAY_AMT2', 'PAY_AMT3', 'PAY_AMT4', 'PAY_AMT5', 'PAY_AMT6',
+       'default.payment.next.month'],
+      dtype='object')
+[ 2023-02-16 00:28:29,485 ] 26 root - INFO - Dropping column: _id 
+[ 2023-02-16 00:28:29,506 ] 28 root - INFO - Row and columns in df: (60000, 25)
+[ 2023-02-16 00:28:29,506 ] 29 root - INFO - Save data in feature store
+[ 2023-02-16 00:28:29,506 ] 35 root - INFO - Create feature store folder if not available
+[ 2023-02-16 00:28:29,507 ] 39 root - INFO - Save df to feature store folder
+[ 2023-02-16 00:28:30,526 ] 44 root - INFO - Split dataset into train and test set
+[ 2023-02-16 00:28:30,537 ] 48 root - INFO - Create dataset directory folder if not available
+[ 2023-02-16 00:28:30,538 ] 53 root - INFO - Save df to feature store folder
+[ 2023-02-16 00:28:31,553 ] 65 root - INFO - Data ingestion artifact: DataIngestionArtifact(feature_store_file_path='/config/workspace/artifact/02162023__002828/data_ingestion/feature_store/predictor.csv', train_file_path='/config/workspace/artifact/02162023__002828/data_ingestion/dataset/train.csv', test_file_path='/config/workspace/artifact/02162023__002828/data_ingestion/dataset/test.csv')
