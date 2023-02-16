@@ -5,7 +5,7 @@ import sys,os
 from predictor.entity import config_entity
 from predictor.components.data_ingestion import DataIngestion
 from predictor.components.data_validation import DataValidation
-# from predictor.components.data_transformation import DataTransformation
+from predictor.components.data_transformation import DataTransformation
 # from predictor.components.model_trainer import ModelTrainer
 # from predictor.components.model_evaluation import ModelEvaluation
 # from predictor.components.model_pusher import ModelPusher
@@ -25,6 +25,12 @@ if __name__=="__main__":
         data_validation= DataValidation(data_validation_config=data_validation_config, 
                          data_ingestion_artifact=data_ingestion_artifact)
         data_validation_artifact = data_validation.initiate_data_validation()
-        
+
+        #data transformation
+        data_transformation_config = config_entity.DataTransformationConfig(training_pipeline_config=training_pipeline_config)
+        data_transformation = DataTransformation(data_transformation_config=data_transformation_config, 
+                data_ingestion_artifact=data_ingestion_artifact)
+        data_transformation_artifact= data_transformation.initiate_data_transformation()
+
     except Exception as e:
         raise SensorException(e,sys)
