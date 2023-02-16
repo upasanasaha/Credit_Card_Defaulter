@@ -13,8 +13,15 @@ if __name__=="__main__":
 
     #Convert dataframe to json so that we can dump these record in mongo db
     df.reset_index(drop=True,inplace=True)
-
     json_record = list(json.loads(df.T.to_json()).values())
-    print(json_record[0])
+
+    #Changing float to int values:
+    json_record_int=[]
+    for i in range(len(json_record)):
+        x=json_record[i]
+        for key in x:
+            x[key]=int(x[key])
+        json_record_int.append(x)
+    print(json_record_int[0])
     #insert converted json record to mongo db
-    mongo_client[DATABASE_NAME][COLLECTION_NAME].insert_many(json_record)
+    mongo_client[DATABASE_NAME][COLLECTION_NAME].insert_many(json_record_int)
